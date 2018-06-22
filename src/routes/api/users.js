@@ -1,5 +1,5 @@
-import User from '../../models/User'
 import express from 'express'
+import User from '../../models/User'
 import gravatar from 'gravatar'
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
