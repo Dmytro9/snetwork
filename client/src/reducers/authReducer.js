@@ -2,7 +2,7 @@ import { SET_CURRENT_USER } from '../actions/types'
 import isEmpty from './../validation/is-empty';
 
 
-const initialState = {
+const initialState = { 
   isAuthenticated: false,
   user: {},
 }
