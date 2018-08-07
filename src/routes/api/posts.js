@@ -22,7 +22,7 @@ router.get('/', (req, res) => {
   Post.find()
     .sort({ date: -1 })
     .then(posts => res.json(posts))
-    .catch(() => res.status(404)).json({ nopostsfound: 'No posts found' })
+    .catch(err => res.status(404).json({ nopostsfound: 'No posts found' }))
 })
 
 
@@ -41,22 +41,28 @@ router.get('/:id', (req, res) => {
    @desc    Create post
    @access  Private
 **/
-router.post('/', passport.authenticate('jwt', { session: false }), (req, res) => {
-  const { errors, isValid } = validatePostInput(req.body)
-  // Check validation
-  if (!isValid) {
-    return res.status(400).json(errors)
+router.post(
+  '/',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    const { errors, isValid } = validatePostInput(req.body);
+
+    // Check Validation
+    if (!isValid) {
+      // If any errors, send 400 with errors object
+      return res.status(400).json(errors);
+    }
+
+    const newPost = new Post({
+      text: req.body.text,
+      name: req.body.name,
+      avatar: req.body.avatar,
+      user: req.user.id
+    });
+
+    newPost.save().then(post => res.json(post));
   }
-
-  const newPost = new Post({
-    text: req.body.text,
-    name: req.body.name,
-    avatar: req.body.avatar,
-    user: req.user.id,
-  })
-
-  newPost.save().then(post => res.json(post))
-})
+);
 
 
 /* @route   DELETE api/posts/:id
