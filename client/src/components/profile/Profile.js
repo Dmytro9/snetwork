@@ -12,7 +12,6 @@ import { getProfileByHandle } from '../../actions/profileActions'
 
 class Profile extends Component {
   componentDidMount() {
-    console.log(this.props.match)
     if (this.props.match.params.handle) {
       this.props.getProfileByHandle(this.props.match.params.handle)
     }

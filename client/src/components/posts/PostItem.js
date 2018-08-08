@@ -35,8 +35,8 @@ class PostItem extends Component {
 
   render() {
 
-    const { post, auth } = this.props
-    const showActions = true
+    const { post, auth, showActions } = this.props
+
 
     return (
       <div className="card card-body mb-3">
@@ -96,6 +96,10 @@ class PostItem extends Component {
   }
 }
 
+
+PostItem.defaultProps = {
+  showActions: true
+}
 
 PostItem.propTypes = {
   post: PropTypes.object.isRequired,
