@@ -1,6 +1,5 @@
-import mongoose from 'mongoose'
-
-const Schema = mongoose.Schema
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 // Create Schema
 const ProfileSchema = new Schema({
@@ -14,13 +13,13 @@ const ProfileSchema = new Schema({
     max: 40
   },
   company: {
-    type: String,
+    type: String
   },
   website: {
-    type: String,
+    type: String
   },
   location: {
-    type: String,
+    type: String
   },
   status: {
     type: String,
@@ -47,27 +46,27 @@ const ProfileSchema = new Schema({
         required: true
       },
       location: {
-        type: String,
+        type: String
       },
       from: {
         type: Date,
         required: true
       },
       to: {
-        type: Date,
+        type: Date
       },
       current: {
         type: Boolean,
         default: false
       },
       description: {
-        type: String,
-      },
+        type: String
+      }
     }
   ],
   education: [
     {
-      university: {
+      school: {
         type: String,
         required: true
       },
@@ -84,15 +83,15 @@ const ProfileSchema = new Schema({
         required: true
       },
       to: {
-        type: Date,
+        type: Date
       },
       current: {
         type: Boolean,
         default: false
       },
       description: {
-        type: String,
-      },
+        type: String
+      }
     }
   ],
   social: {
@@ -105,18 +104,17 @@ const ProfileSchema = new Schema({
     facebook: {
       type: String
     },
-    instagram: {
-      type: String
-    },
     linkedin: {
       type: String
     },
+    instagram: {
+      type: String
+    }
   },
   date: {
     type: Date,
     default: Date.now
   }
-})
+});
 
-const Profile = mongoose.model('profile', ProfileSchema)
-export default Profile
+module.exports = Profile = mongoose.model('profile', ProfileSchema);

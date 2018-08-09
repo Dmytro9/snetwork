@@ -1,6 +1,5 @@
-import mongoose from 'mongoose'
-
-const Schema = mongoose.Schema
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 // Create Schema
 const PostSchema = new Schema({
@@ -13,7 +12,7 @@ const PostSchema = new Schema({
     required: true
   },
   name: {
-    type: String,
+    type: String
   },
   avatar: {
     type: String
@@ -22,7 +21,7 @@ const PostSchema = new Schema({
     {
       user: {
         type: Schema.Types.ObjectId,
-        ref: 'user'
+        ref: 'users'
       }
     }
   ],
@@ -30,14 +29,14 @@ const PostSchema = new Schema({
     {
       user: {
         type: Schema.Types.ObjectId,
-        ref: 'user'
+        ref: 'users'
       },
       text: {
         type: String,
         required: true
       },
       name: {
-        type: String,
+        type: String
       },
       avatar: {
         type: String
@@ -50,9 +49,8 @@ const PostSchema = new Schema({
   ],
   date: {
     type: Date,
-    default: Date.new
+    default: Date.now
   }
-})
+});
 
-const Post = mongoose.model('post', PostSchema)
-export default Post
+module.exports = Post = mongoose.model('post', PostSchema);
