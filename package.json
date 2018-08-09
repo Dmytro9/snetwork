@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "client-install": "npm install --prefix client",
+    "start": "node index.js",
     "server": "backpack",
     "server:build": "backpack build",
     "client": "npm start --prefix client",
