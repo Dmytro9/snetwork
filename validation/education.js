@@ -4,13 +4,13 @@ const isEmpty = require('./is-empty');
 module.exports = function validateExperienceInput(data) {
   let errors = {};
 
-  data.school = !isEmpty(data.school) ? data.school : '';
+  data.university = !isEmpty(data.university) ? data.university : '';
   data.degree = !isEmpty(data.degree) ? data.degree : '';
   data.fieldofstudy = !isEmpty(data.fieldofstudy) ? data.fieldofstudy : '';
   data.from = !isEmpty(data.from) ? data.from : '';
 
-  if (Validator.isEmpty(data.school)) {
-    errors.school = 'School field is required';
+  if (Validator.isEmpty(data.university)) {
+    errors.university = 'University field is required';
   }
 
   if (Validator.isEmpty(data.degree)) {
