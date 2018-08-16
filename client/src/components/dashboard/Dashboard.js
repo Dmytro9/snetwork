@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
+// import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { getCurrentProfile, deleteAccount } from '../../actions/profileActions'
 import Spinner from '../common/Spinner'
 import ProfileActions from './ProfileActions'
 import Experience from './Experience'
 import Education from './Education'
+
+// import ReactPerformance from 'react-performance'
 
 
 class Dashboard extends Component {
@@ -31,7 +34,7 @@ class Dashboard extends Component {
       if (Object.keys(profile).length > 0) {
         dashboardContent = (
           <div>
-            <p className="lead text-muted">Welcome <Link to={`/profile/${profile.handle}`}>{user.name}</Link></p>
+            <p onClick={() => console.log(1)} className="lead text-muted">Welcome <Link to={`/profile/${profile.handle}`}>{user.name}</Link></p>
             <ProfileActions />
             <Experience
               experience={profile.experience}
@@ -87,4 +90,20 @@ const mapStateToProps = state => ({
   auth: state.auth
 })
 
+
+// const mapDispatchToProps = dispatch => bindActionCreators({
+//   getCurrentProfile,
+//   deleteAccount,
+// }, dispatch)
+
+
+
 export default connect(mapStateToProps, { getCurrentProfile, deleteAccount })(Dashboard)
+
+
+// export default ReactPerformance.connect({
+//   mapStateToProps,
+//   mapDispatchToProps,
+//   getId: 'Dashboard',
+//   Component: Dashboard,
+// })

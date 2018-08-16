@@ -26,6 +26,10 @@ import { logoutUser } from './actions/authActions'
 import './App.css'
 
 
+// React perf devtool 
+var { registerObserver } = require('react-perf-devtool')
+registerObserver()
+
 // Check for token
 if (localStorage.jwtToken) {
   // Set auth token header auth

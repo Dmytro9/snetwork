@@ -12,8 +12,9 @@ const TextFieldGroup = ({
   info,
   type,
   onChange,
-  disabled
+  disabled,
 }) => {
+
   return (
     <div className="form-group">
       <input
