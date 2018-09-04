@@ -3,6 +3,7 @@ import authReducer from './authReducer'
 import errorReducer from './errorReducer'
 import profileReducer from './profileReducer'
 import postReducer from './postReducer'
+import lineReducer from './lineReducer'
 
 
 export default combineReducers({
@@ -10,5 +11,6 @@ export default combineReducers({
   errors: errorReducer,
   profile: profileReducer,
   post: postReducer,
+  lines: lineReducer,
 })
 
