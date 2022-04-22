@@ -3,5 +3,7 @@
 ## with React Redux Node.js MongoDb
 
 - git clone
-- yarn i
+- yarn install
 - yarn dev
+
+Enjoy ;)
