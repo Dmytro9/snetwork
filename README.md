@@ -5,3 +5,5 @@
 - git clone
 - yarn i
 - yarn dev
+
+Enjoy ;)
