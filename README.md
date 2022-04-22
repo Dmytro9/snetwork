@@ -5,5 +5,3 @@
 - git clone
 - yarn install
 - yarn dev
-
-Enjoy ;)
